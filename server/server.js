@@ -7,8 +7,7 @@ app.use(express.static('server/public'));
 
 // Global variable that will contain all of the
 // calculation objects:
-let calculations = [
-];
+let calculations = [];
 
 // Here's a wonderful place to make some routes:
 
@@ -20,23 +19,46 @@ app.get('/calculations', function (req, res) {
 // POST /calculations
 app.post('/calculations', (req, res) => {
   //store data
-  let newCalculation = req.body;
-  console.log(`Get a POST request`, newCalculation);
+  let numOne = req.body.numOne;
+  let numTwo = req.body.numTwo;
+  let operator = req.body.operator;
 
-  //Add data to list
+  //verifying data
+  console.log(numOne, numTwo, operator);
+
+  //perform calculation
+  let result = calculateResult(Number(numOne), Number(numTwo), operator);
+
+  // Create a new calculation object to push
+  let newCalculation = {
+    numOne,
+    numTwo,
+    operator,
+    result,
+  };
+
+  //Add data to list existing list
   calculations.push(newCalculation);
   //do magic
   res.sendStatus(201);
 })
 
-
-
-
-
-
-
-
-
+// Function to calculate the result based on the operator
+function calculateResult(numOne, numTwo, operator) {
+  //Addition operator, first and second numbers
+  if (operator === '+') {
+    return numOne + numTwo;
+    //Subtraction operator
+  } else if (operator === '-') {
+    return numOne - numTwo;
+    //multiplication operator
+  } else if (operator === '*') {
+    return numOne * numTwo;
+    //division operator
+  } else if (operator === '/') {
+    return numOne / numTwo;
+  }
+}
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
