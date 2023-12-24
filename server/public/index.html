@@ -10,13 +10,13 @@
     <h1>Server-Side Calculator</h1>
 
     <form data-testid="calculator">
-      <input placeholder="First Number">
+      <input placeholder="First Number" id="firstNumber">
       <button>+</button>
       <button>-</button>
       <button>*</button>
       <button>/</button>
-      <input placeholder="Second Number">
-      <button>=</button>
+      <input placeholder="Second Number"  id="secondNumber">
+      <button onClick="addCalculation(event)">=</button>
       <button>C</button>
     </form>
 
@@ -24,7 +24,7 @@
       <!-- The most recent calculation result goes here. -->
     </section>
 
-    <section data-testid="resultHistory" id="calculationsResults">
+    <section data-testid="resultHistory">
       <!-- The list of calculation results goes here. -->
     </section>
   </body>
