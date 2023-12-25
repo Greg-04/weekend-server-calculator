@@ -7,7 +7,7 @@ Server-Side Calculator
 This server-side calculator project provides a web interface for performing basic calculations. It includes features such as addition, subtraction, multiplication, and division. The goal was to create a user-friendly calculator that interacts with a server to store calculation history.
 
 ## Screen Shot
-
+![Alt text](<Screenshot 2023-12-25 at 5.47.26 PM.png>)
 
 ## Prerequisites
 
