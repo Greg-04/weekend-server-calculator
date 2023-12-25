@@ -1,4 +1,12 @@
 console.log('client.js is sourced!');
+let operator;
+
+function setOperator(event){
+    event.preventDefault();
+    // console.log(event);
+    operator = event.target.firstChild.data;
+    console.log('Grabbing for my newCalculation', operator);
+}
 
 function onReady() {
     //Get existing data from server
@@ -56,10 +64,12 @@ function submitCalculation(event) {
     let secondNumber = document.querySelector('#secondNumber');
     console.log(firstNumber);
     console.log(secondNumber);
+    console.log('This is my operator', operator);
 
     let newCalculation = {
         numOne: firstNumber.value,
         numTwo: secondNumber.value,
+        operator: operator,
     }
     axios({
         method: 'POST',

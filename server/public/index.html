@@ -11,10 +11,10 @@
 
     <form data-testid="calculator">
       <input placeholder="First Number" id="firstNumber">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
+      <button onClick="setOperator(event)">+</button>
+      <button onClick="setOperator(event)">-</button>
+      <button onClick="setOperator(event)">*</button>
+      <button onClick="setOperator(event)">/</button>
       <input placeholder="Second Number" id="secondNumber">
       <button onClick="submitCalculation(event)">=</button>
       <button>C</button>
