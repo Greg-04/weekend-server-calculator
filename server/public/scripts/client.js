@@ -60,10 +60,10 @@ function renderCalculations(calculationData) {
 
 function submitCalculation(event) {
     event.preventDefault();
-    let firstNumber = document.querySelector('#firstNumber');
-    let secondNumber = document.querySelector('#secondNumber');
-    console.log(firstNumber);
-    console.log(secondNumber);
+    // let firstNumber = document.querySelector('#firstNumber');
+    // let secondNumber = document.querySelector('#secondNumber');
+    // console.log(firstNumber);
+    // console.log(secondNumber);
     console.log('This is my operator', operator);
 
     let newCalculation = {
@@ -78,8 +78,8 @@ function submitCalculation(event) {
     })
     .then((response) => {
         //clear fields
-        firstNumber.value = '';
-        secondNumber.value = '';
+        // firstNumber.value = '';
+        // secondNumber.value = '';
         
         // empty the output element for recent results
         let recentResult = document.getElementById('recentResult');
@@ -96,7 +96,16 @@ function submitCalculation(event) {
     });
 }
 
-
+function clearInputs(event) {
+    event.preventDefault();
+    let firstNumber = document.querySelector('#firstNumber');
+    let secondNumber = document.querySelector('#secondNumber');
+    console.log(firstNumber);
+    console.log(secondNumber);
+     //clear fields
+     firstNumber.value = '';
+     secondNumber.value = '';
+}
 
 
 
