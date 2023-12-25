@@ -30,9 +30,6 @@ function renderCalculations(calculationData) {
       
     let recentResult = document.getElementById('recentResult');
     let resultHistory = document.getElementById('resultHistory');
-      
-    // empty the output element for recent results
-    recentResult.innerHTML = '';
      
     // loop through the books to display them
     for (let calculation of calculationData) {
@@ -53,6 +50,41 @@ function renderCalculations(calculationData) {
     }
 }
 
+function submitCalculation(event) {
+    event.preventDefault();
+    let firstNumber = document.querySelector('#firstNumber');
+    let secondNumber = document.querySelector('#secondNumber');
+    console.log(firstNumber);
+    console.log(secondNumber);
+
+    let newCalculation = {
+        numOne: firstNumber.value,
+        numTwo: secondNumber.value,
+    }
+    axios({
+        method: 'POST',
+        url: '/calculations',
+        data: newCalculation,
+    })
+    .then((response) => {
+        //clear fields
+        firstNumber.value = '';
+        secondNumber.value = '';
+        
+        // empty the output element for recent results
+        let recentResult = document.getElementById('recentResult');
+        recentResult.innerHTML = '';
+        //clear DOM to not double history
+        let resultHistory = document.getElementById('resultHistory');
+        resultHistory.innerHTML = '';
+
+        // GET new calculation
+        getCalculations();
+    })
+    .catch((error) => {
+        console.error('ERROR:', error);
+    });
+}
 
 
 
