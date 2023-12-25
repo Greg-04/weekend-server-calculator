@@ -24,6 +24,11 @@ function getCalculations() {
       });
   }
 
+  //Operator Clicks
+  // Handle operator button click
+function operatorClick(operator) {
+    document.getElementById('operator').value = operator;
+}
 
   function renderCalculations(newCalculation) {
     console.log('rendering calculations to the DOM', newCalculation);
@@ -53,6 +58,7 @@ function addCalculation(event) {
     // Store the calculations inputs in variables
     let firstNumber = document.getElementById('firstNumber');
     let secondNumber = document.getElementById('secondNumber');
+    let operator = document.getElementById('operator').value;
   
     // Send the new data to the server
     axios({
