@@ -7,7 +7,18 @@ app.use(express.static('server/public'));
 
 // Global variable that will contain all of the
 // calculation objects:
-let calculations = [];
+let calculations = [{
+  numOne: 3,
+  numTwo: 5,
+  operator: '+',
+  result: 8
+},
+{
+  numOne: 11,
+  numTwo: 7,
+  operator: '-',
+  result: 4
+}];
 
 // Here's a wonderful place to make some routes:
 
@@ -19,9 +30,10 @@ app.get('/calculations', function (req, res) {
 // POST /calculations
 app.post('/calculations', (req, res) => {
   //store data
-  let numOne = req.body.numOne;
-  let numTwo = req.body.numTwo;
-  let operator = req.body.operator;
+  let dataContainer = req.body;
+  let numOne = dataContainer.numOne;
+  let numTwo = dataContainer.numTwo;
+  let operator = dataContainer.operator;
 
   //verifying data
   console.log(numOne, numTwo, operator);
