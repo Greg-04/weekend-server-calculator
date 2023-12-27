@@ -20,12 +20,13 @@ app.get('/calculations', function (req, res) {
 app.post('/calculations', (req, res) => {
   //store data
   let dataContainer = req.body;
+  console.log("This is my req.body", dataContainer);
   let numOne = dataContainer.numOne;
   let numTwo = dataContainer.numTwo;
   let operator = dataContainer.operator;
 
   //verifying data
-  console.log(numOne, numTwo, operator);
+  console.log("Verfiying data", numOne, numTwo, operator);
 
   //perform calculation
   let result = calculateResult(Number(numOne), Number(numTwo), operator);
